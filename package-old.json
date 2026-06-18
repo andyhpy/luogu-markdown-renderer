@@ -1,0 +1,15 @@
+{
+  "name": "luogu-renderer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "highlight.js": "^10.7.3",
+    "katex": "^0.12.0",
+    "markdown-it": "^12.0.0",
+    "markdown-it-sub": "^1.0.0",
+    "markdown-it-sup": "^1.0.0",
+    "markdown-it-task-lists": "^2.1.1",
+    "markdown-it-texmath": "^0.6.0"
+  }
+}

@@ -1,0 +1,6 @@
+node_modules/ 
+node_modules_new/ 
+node_modules_old/
+test/
+cmd/
+claude/
