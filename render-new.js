@@ -12,13 +12,11 @@ import { visit } from 'unist-util-visit';
 import { toText } from 'hast-util-to-text';
 import katex from 'katex';
 import { h } from 'hastscript';
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
-// Load Prism and make globally accessible so CJS components can find it
-globalThis.Prism = require('prismjs');
-require('prismjs/components/prism-clike.js');
-require('prismjs/components/prism-c.js');
-require('prismjs/components/prism-cpp.js');
+import Prism from 'prismjs';
+import 'prismjs/components/prism-clike.js';
+import 'prismjs/components/prism-c.js';
+import 'prismjs/components/prism-cpp.js';
+globalThis.Prism = Prism;
 
 // ========== 1. 表格合并（处理 ^ 符号，生成 rowspan）==========
 // 在 rehype 阶段直接扫描表格，^ 向上合并并添加 rowspan
