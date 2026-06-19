@@ -4,3 +4,5 @@ node_modules_old/
 test/
 cmd/
 claude/
+dist/
+.npmignore
