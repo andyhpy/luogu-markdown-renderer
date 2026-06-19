@@ -411,8 +411,8 @@ const processor = unified()
     .use(remarkEpigraph)             // epigraph 容器
     .use(remarkCodeBlockParams)      // 代码块参数
     .use(remarkRehype, { allowDangerousHtml: true })
-    .use(rehypePrism)
     .use(rehypeKatexWithError)       // KaTeX 渲染，错误显示红色
+    .use(rehypePrism)
     .use(rehypeCuteTableCleanup)     // cute-table 包裹 table
     .use(rehypeTableMerge)           // 在 HTML 层面清理合并单元格
     .use(rehypeAlignCleanup)         // 对齐样式转移

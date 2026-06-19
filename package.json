@@ -1,6 +1,6 @@
 {
   "name": "luogu-renderer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Luogu Markdown renderer - old (markdown-it) and new (remark+rehype)",
   "type": "module",
   "exports": {
