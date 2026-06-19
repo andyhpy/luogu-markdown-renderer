@@ -47,7 +47,7 @@ dist/
 ```html
 <script src="https://cdn.jsdelivr.net/gh/andyhpy/luogu-markdown-renderer@main/dist/luogu-new-renderer.iife.js"></script>
 <script>
-LuoguNewRenderer("# 标题 $E=mc^2$").then(html => {
+LuoguNewRenderer.render("# 标题 $E=mc^2$").then(html => {
   document.getElementById('preview').innerHTML = html;
 });
 </script>
