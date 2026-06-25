@@ -392,7 +392,22 @@ function rehypeBilibili() {
     };
 }
 
-// ========== 8. 公式错误处理（KaTeX 渲染失败时显示红色）==========
+// ========== 8. 含 \tag 的 math-inline 升级为 math-display ==========
+function rehypeUpgradeMathDisplay() {
+    return (tree) => {
+        visit(tree, 'element', (node) => {
+            if (node.tagName === 'code' &&
+                node.properties?.className?.includes('math-inline') &&
+                node.children?.[0]?.value?.includes('\\tag')) {
+                node.properties.className = node.properties.className.map(c =>
+                    c === 'math-inline' ? 'math-display' : c
+                );
+            }
+        });
+    };
+}
+
+// ========== 9. 公式错误处理（KaTeX 渲染失败时显示红色）==========
 function rehypeKatexWithError() {
     return rehypeKatex({ throwOnError: false, errorColor: 'rgb(204, 0, 0)', output: 'html', strict: false });
 }
@@ -409,6 +424,7 @@ const processor = unified()
     .use(remarkEpigraph)             // epigraph 容器
     .use(remarkCodeBlockParams)      // 代码块参数
     .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeUpgradeMathDisplay)   // 含 \tag 的 math-inline → math-display
     .use(rehypeKatexWithError)       // KaTeX 渲染，错误显示红色
     .use(rehypePrism)
     .use(rehypeCuteTableCleanup)     // cute-table 包裹 table
